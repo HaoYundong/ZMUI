@@ -34,10 +34,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def user = properties.getProperty("bintray.user")
+
 version = "0.0.1"
 group = "com.yundong.zmui"
 publish {
-    userOrg = 'haoyundong520'                       // bintray注册的用户名
+    userOrg = user                                  // bintray注册的用户名
     repoName = 'zhima'                              // 远程仓库名字,不指明，默认是上传到maven
     artifactId = 'zmui'                             // compile引用时的第2部分项目名，也是远程仓库的包名
     desc = 'Android UI module'                      // 描述，不重要
