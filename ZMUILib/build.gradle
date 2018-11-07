@@ -1,5 +1,5 @@
-apply plugin: 'com.novoda.bintray-release'// 上传至远程仓库
 apply plugin: 'com.android.library'
+apply plugin: "guru.stefma.bintrayrelease"
 
 android {
     compileSdkVersion 27
@@ -34,14 +34,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
-
-// 远程仓库配置
-publish{
+version = "0.0.1"
+group = "com.yundong.zmui"
+publish {
     userOrg = 'haoyundong520'                       // bintray注册的用户名
     repoName = 'zhima'                              // 远程仓库名字,不指明，默认是上传到maven
-    groupId = 'com.yundong.zmui'                    // compile引用时的第1部分groupId
     artifactId = 'zmui'                             // compile引用时的第2部分项目名，也是远程仓库的包名
-    publishVersion = '0.0.1'                        // compile引用时的第3部分版本号
     desc = 'Android UI module'                      // 描述，不重要
     website = 'https://github.com/HaoYundong/ZMUI'  // 引用github主页
 }
